@@ -1,0 +1,40 @@
+/*
+** the style which cover the Vant's style
+*/
+/* navbar 导航 */
+.van-nav-bar {
+  position: fixed;
+  width: 100%;
+  height: .88rem;
+  line-height: .88rem;
+}
+/* navbar 标题文字 */
+.van-nav-bar__title {
+  font-size: .36rem;
+  font-weight: bold;
+  color: #333
+}
+/* navbar 返回按钮 */
+.van-nav-bar .van-icon {
+  font-size: .5rem;
+  font-weight: 500;
+  color: #666
+}
+
+/*----------------------------cover----------------------------*/
+
+/* 间隔navbar 88px */
+.padding-top88 {
+  padding-top: .88rem;
+}
+/* 预留两侧 30px */
+.pb-30 {
+  padding: 0 .3rem;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+/* 宽度 100% */
+.w-100 {
+  width: 100%;
+}

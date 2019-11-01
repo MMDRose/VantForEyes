@@ -1,0 +1,42 @@
+/*
+  该文件使用混用“mixins”
+  同样是样式的复用
+*/
+
+// 多文字...显示
+ellipsis() {
+  overflow hidden
+  white-space nowrap
+  text-overflow ellipsis
+}
+// box-sizing
+boxSizing() {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+// padding left&right
+padding30() {
+  padding 0 .3rem
+  box-sizing border-box
+}
+// 偏离顶部navbar, margin 88px
+marginTop88() {
+  margin-top .88rem
+}
+// 偏离顶部navbar, padding 88px
+paddingTop88() {
+  padding-top .88rem
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+// 统一标题
+mainTitle() {
+  margin-top: .26rem;
+  height: .44rem;
+  color: #212121;
+  font-size: .32rem;
+  line-height: .44rem;
+}
