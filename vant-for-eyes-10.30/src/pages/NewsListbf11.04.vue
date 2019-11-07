@@ -8,20 +8,47 @@
     />
     <!--2.news list 列表-->
     <van-pull-refresh v-model="isLoading" @refresh="onRefresh">
-      <news-list-cnt class="padding-top88"></news-list-cnt>
+      <van-list
+        class="padding-top88"
+        v-model="loading"
+        :finished="finished"
+        finished-text="没有更多了"
+        @load="onLoad"
+        :error.sync="error"
+        error-text="请求失败，点击重新加载"
+      >
+        <ul class="news-list-ul w-100 pb-30">
+          <!--循环列表项-->
+          <li class="list-item w-100"
+              v-for="item in newsList"
+              :key="item.id"
+          >
+            <!--左侧文字-->
+            <div class="list-item-cnt">
+              <h1 class="item-cnt-title">{{ item.title }}</h1>
+              <p class="item-cnt-date">{{ item.date }}</p>
+            </div>
+            <!--右侧图片-->
+            <div class="list-item-img">
+              <!--后台数据加载到的图片,背景形式用于居中显示不合规范图片-->
+              <div
+                class="img"
+                :style="{ 'background-image': 'url(' + item.imgUrl + ')'}"
+              >
+              </div>
+            </div>
+          </li>
+        </ul>
+      </van-list>
     </van-pull-refresh>
   </div>
 </template>
 
 <script>
 import axios from 'axios'
-import NewsListCnt from '../components/NewsListCnt' // 引入公共获取资讯列表组件
 
 export default {
   name: 'NewsList',
-  components: {
-    NewsListCnt
-  },
   data () {
     return {
       newsList: [], // 新闻列表

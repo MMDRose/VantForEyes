@@ -121,3 +121,7 @@ a {
   color: #25a4bb;
   text-decoration: none;
 }
+
+span {
+  display: inline-block;
+}

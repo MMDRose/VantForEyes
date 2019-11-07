@@ -9,6 +9,8 @@ import Vant from 'vant'
 import App from './App'
 import router from './router'
 import fastClick from 'fastclick'
+import global_ from './components/Global' // 引入全局js全局变量
+Vue.prototype.GLOBAL = global_ // js全局变量挂载到Vue实例上面
 
 Vue.config.productionTip = false
 // 初始化fastClick

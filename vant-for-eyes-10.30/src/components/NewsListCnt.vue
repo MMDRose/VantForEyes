@@ -1,44 +1,53 @@
 <template>
-  <div class="news-list">
-    <!--1.navbar 标题-->
-    <van-nav-bar
-      title="健康资讯"
-      left-arrow
-      @click-left="goBack"
-    />
-    <!--2.news list 列表-->
-    <van-pull-refresh v-model="isLoading" @refresh="onRefresh">
-      <news-list-cnt class="padding-top88"></news-list-cnt>
-    </van-pull-refresh>
-  </div>
+  <!--上拉加载的，数据列表-->
+  <van-list
+    v-model="loading"
+    :finished="finished"
+    finished-text="没有更多了"
+    @load="onLoad"
+    :error.sync="error"
+    error-text="请求失败，点击重新加载"
+  >
+    <ul class="news-list-ul w-100 pb-30">
+      <!--循环列表项-->
+      <li class="list-item w-100"
+          v-for="item in newsList"
+          :key="item.id"
+      >
+        <!--左侧文字-->
+        <div class="list-item-cnt">
+          <h1 class="item-cnt-title">{{ item.title }}</h1>
+          <p class="item-cnt-date">{{ item.date }}</p>
+        </div>
+        <!--右侧图片-->
+        <div class="list-item-img">
+          <!--后台数据加载到的图片,背景形式用于居中显示不合规范图片-->
+          <div
+            class="img"
+            :style="{ 'background-image': 'url(' + item.imgUrl + ')'}"
+          >
+          </div>
+        </div>
+      </li>
+    </ul>
+  </van-list>
 </template>
 
 <script>
 import axios from 'axios'
-import NewsListCnt from '../components/NewsListCnt' // 引入公共获取资讯列表组件
 
 export default {
-  name: 'NewsList',
-  components: {
-    NewsListCnt
-  },
+  name: 'NewsListCnt',
   data () {
     return {
       newsList: [], // 新闻列表
       total: '', // 新闻列表总数
       loading: false, // 上拉加载 - 继续加载
       finished: false, // 上拉加载 - 完成态
-      isLoading: false, // 下拉刷新
       error: false // 错误提示
     }
   },
   methods: {
-    // 回到上一级目录
-    goBack () {
-      window.history.length > 1
-        ? this.$router.go(-1)
-        : this.$router.push('/')
-    },
     // 上拉加载
     onLoad () {
       // 异步更新数据
@@ -51,15 +60,6 @@ export default {
         if (this.newsList.length >= this.total) {
           this.finished = true
         }
-      }, 500)
-    },
-    // 下拉刷新
-    onRefresh () {
-      setTimeout(() => {
-        this.$toast('刷新成功')
-        this.isLoading = false
-        this.newsList = [] // 重新变回空数组
-        this.getNewsListHandle() // 获取后台数据
       }, 500)
     },
     // 获取后台数据
@@ -77,18 +77,13 @@ export default {
           this.error = true // 加载错误，点击重新加载
         })
     }
-  },
-  mounted () {}
+  }
 }
 </script>
 
 <style rel="stylesheet/stylus" lang="stylus" scoped>
 @import "~style/mixins.styl"
 @import "~style/varibles.styl"
-
-/* 加载数据位置 loading */
-.news-list >>> .van-pull-refresh__head
-  top 0
 
 /* 列表项 */
 .list-item

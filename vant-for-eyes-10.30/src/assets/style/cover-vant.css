@@ -27,9 +27,37 @@
 .padding-top88 {
   padding-top: .88rem;
 }
+.margin-top88 {
+  margin-top: .88rem;
+}
 /* 预留两侧 30px */
 .pb-30 {
   padding: 0 .3rem;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+.pl16 {
+  padding-left: .16rem;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+.pr16 {
+  padding-right: .16rem;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+.pt16 {
+  padding-top: .16rem;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+.pb16 {
+  padding-bottom: .16rem;
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
