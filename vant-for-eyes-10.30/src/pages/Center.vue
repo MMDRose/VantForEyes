@@ -38,11 +38,7 @@
         <h1 class="function-title">我的服务</h1>
         <van-grid :border="false" :column-num="3">
           <!--3.1 循环项，点击转原生方法-->
-          <van-grid-item
-            v-for="(item, index) in functionList"
-            :key="index"
-            @click="getOriginMethod"
-          >
+          <van-grid-item @click="getOriginMethod({'t':'0'},item.getMethod)">
             <van-image :src="item.image"></van-image>
             <h2 class="func-name" v-text="item.title"></h2>
           </van-grid-item>
@@ -54,7 +50,7 @@
     <div class="sub-function pb-30 w-100">
       <ul class="w-100 sub-items">
         <!--4.1 意见反馈-->
-        <li class="item">
+        <li class="item" @click="getOriginMethod('{\'t\': \'0\'}', 'onGetQA')">
           <h1>
             <img class="center-sub-icon" src="../assets/image/center/center-sub-01.png" alt="">
             <span class="center-sub-name">意见反馈</span>
@@ -62,7 +58,7 @@
           <img class="enter" src="../assets/image/enter.png" alt="">
         </li>
         <!--4.2 隐私条款-->
-        <li class="item">
+        <li class="item" @click="getOriginMethod('{\'t\': \'0\'}', 'onGetPolicy')">
           <h1>
             <img class="center-sub-icon" src="../assets/image/center/center-sub-02.png" alt="">
             <span class="center-sub-name">隐私条款</span>
@@ -70,7 +66,7 @@
           <img class="enter" src="../assets/image/enter.png" alt="">
         </li>
         <!--4.3 关于我们-->
-        <li class="item">
+        <li class="item" @click="getOriginMethod('{\'t\': \'0\'}', 'onGetAbout')">
           <h1>
             <img class="center-sub-icon" src="../assets/image/center/center-sub-03.png" alt="">
             <span class="center-sub-name">关于我们</span>
@@ -78,7 +74,7 @@
           <img class="enter" src="../assets/image/enter.png" alt="">
         </li>
         <!--4.4 设置-->
-        <li class="item">
+        <li class="item"  @click="getOriginMethod('{\'t\': \'0\'}', 'onGetSetting')">
           <h1>
             <img class="center-sub-icon" src="../assets/image/center/center-sub-04.png" alt="">
             <span class="center-sub-name">设置</span>
@@ -102,13 +98,16 @@ export default {
       ],
       functionList: [{
         'title': '就诊人管理',
-        'image': require('../assets/image/center/center-func-icon01.png')
+        'image': require('../assets/image/center/center-func-icon01.png'),
+        'getMethod': ''
       }, {
         'title': '健康档案',
-        'image': require('../assets/image/center/center-func-icon02.png')
+        'image': require('../assets/image/center/center-func-icon02.png'),
+        'getMethod': ''
       }, {
         'title': '我的订单',
-        'image': require('../assets/image/center/center-func-icon03.png')
+        'image': require('../assets/image/center/center-func-icon03.png'),
+        'getMethod': ''
       }]
     }
   },
@@ -117,9 +116,8 @@ export default {
     onGetMsg () {
       alert('hahaha')
     },
-    // 点击跳转到原生方法
-    getOriginMethod () {
-      alert('hahaha')
+    test () {
+      this.getOriginMethod('参数', '方法')
     }
   }
 }
@@ -152,7 +150,8 @@ export default {
     position relative
     top: .88rem
     width 100%
-    min-height 2.4rem
+    height auto
+    min-height 3.28rem
     background-color red
     background url("../assets/image/center/center-header-bg.png") no-repeat
     background-size 100% auto
@@ -185,7 +184,8 @@ export default {
   /*3. 主要内容*/
   .main-function
     position relative
-    padding-top .2rem
+    margin-top -.8rem
+    /*padding-top .2rem*/
     background transparent
     .main-function-box
       overflow hidden
