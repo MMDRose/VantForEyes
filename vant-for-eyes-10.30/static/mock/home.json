@@ -1,0 +1,22 @@
+{
+  "success": true,
+  "data": {
+    "bannerList": [{
+      "id": "banner0001",
+      "imgUrl": "../../../static/image/banner01.jpg",
+      "title": ""
+    }, {
+      "id": "banner0002",
+      "imgUrl": "../../../static/image/banner02.jpg",
+      "title": ""
+    },{
+      "id": "banner0003",
+      "imgUrl": "../../../static/image/banner03.jpg",
+      "title": ""
+    },{
+      "id": "banner0004",
+      "imgUrl": "../../../static/image/banner04.jpg",
+      "title": ""
+    }]
+  }
+}
