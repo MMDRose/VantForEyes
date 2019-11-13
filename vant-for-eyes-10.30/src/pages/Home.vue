@@ -9,11 +9,14 @@
      <div class="banner-bg"></div>
      <!--2.2 轮播-->
      <div class="box-banner">
-       <van-swipe :autoplay="3000" indicator-color="yellow">
+       <!--2.2.1 组件-->
+       <van-swipe :autoplay="3000" indicator-color="#fff">
          <van-swipe-item v-for="item of bannerList" :key="item.id">
            <img :src="item.imgUrl" :alt="item.title">
          </van-swipe-item>
        </van-swipe>
+       <!--2.2.2 圆点背景-->
+       <div class="indicators-gradient-bg"></div>
      </div>
    </div>
 
@@ -112,7 +115,21 @@ export default {
 
   .van-hairline--bottom::after
     border none
-
+  .home >>> .van-swipe__indicators
+    bottom auto
+    top 56%
+    z-index 1000
+  .home >>> .van-swipe__indicator
+    margin-right .24rem
+    width .12rem
+    height .12rem
+    background-color $bgWhite
+    opacity .4
+  .home >>> .van-swipe__indicator--active
+    width .48rem
+    height .12rem
+    opacity 1
+    border-radius $borderRadius8
   img
     max-width 100%
 
@@ -164,6 +181,13 @@ export default {
         box-shadow 0 .08rem .16rem 0 rgba(0,0,0,0.12)
         img
           max-width 100%
+        .indicators-gradient-bg
+          width 100%
+          height .8rem
+          background linear-gradient(180deg,rgba(0,0,0,0) 0%,rgba(0,0,0,1) 100%)
+          box-shadow 0 .08rem .16rem 0 rgba(0,0,0,0.12)
+          position absolute
+          bottom 0
 
     /*3.quick access*/
     .quick-access
