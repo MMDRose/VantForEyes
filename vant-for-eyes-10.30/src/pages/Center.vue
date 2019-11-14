@@ -59,11 +59,15 @@
     <div class="sub-function w-100">
       <ul class="w-100 sub-items">
         <!--4.0 消息中心-->
+        <!--需要与原生界面做交互，反馈最新提示信息-->
         <li class="item" @click="getOriginMethod('{\'t\': \'0\'}', 'onGetMsg')">
           <h1>
             <img class="center-sub-icon" src="../assets/image/center/center-sub-00.png" alt="消息中心">
             <span class="center-sub-name">消息中心</span>
           </h1>
+          <div class="tips">
+            <van-tag class="tag-new">您有<span class="num">1</span>条未读消息</van-tag>
+          </div>
           <img class="enter" src="../assets/image/enter.png" alt="enter">
         </li>
         <!--4.1 意见反馈-->
@@ -249,5 +253,20 @@ export default {
         height 1.48rem
         border-top .24rem solid $borderColorEE
         border-bottom .24rem solid $borderColorEE
+        .tips
+          flex 1
+          text-align right
+          .tag-new
+            margin .16rem
+            display inline-block !important
+            width 2.4rem
+            height .4rem
+            line-height .4rem
+            text-align center
+            border-radius $borderRadius8
+            font-size .24rem
+            font-weight 400
+            background-color $bgSubRed
+            color $colorMainRed
 
 </style>

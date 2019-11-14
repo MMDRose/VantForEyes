@@ -2,8 +2,12 @@ import Vue from 'vue'
 import Router from 'vue-router'
 import Home from '../pages/Home'
 import NewsList from '../pages/NewsList'
+import CommonNav from '../components/CommonNav'
 import NewsListCnt from '../components/NewsListCnt'
 import NewsDetail from '../pages/NewsDetail'
+import OrderList from '../pages/OrderList'
+import Code from '../pages/order/Code'
+import OrderDetailCheck from '../pages/order/OrderDetailCheck'
 import Center from '../pages/Center'
 import Ttext from '../pages/Ttext'
 Vue.use(Router)
@@ -15,6 +19,12 @@ export default new Router({
       path: '/',
       name: 'Home',
       component: Home
+    },
+    // 公共导航组件
+    {
+      path: '/commonnav',
+      name: 'CommonNav',
+      component: CommonNav
     },
     // 个人中心
     {
@@ -39,6 +49,24 @@ export default new Router({
       path: '/newsdetail',
       name: 'NewsDetail',
       component: NewsDetail
+    },
+    // 订单列表
+    {
+      path: '/orderlist',
+      name: 'OrderList',
+      component: OrderList
+    },
+    // 订单详情 -- 筛查
+    {
+      path: '/orderdetailcheck',
+      name: 'OrderDetailCheck',
+      component: OrderDetailCheck
+    },
+    // 码展示
+    {
+      path: '/code',
+      name: 'Code',
+      component: Code
     },
     // 测试组件
     {

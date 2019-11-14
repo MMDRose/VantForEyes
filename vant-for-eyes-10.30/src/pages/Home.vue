@@ -144,10 +144,6 @@ export default {
       .van-nav-bar__title
         color #fff
         font-weight bold
-      .van-nav-bar__right
-        /*top .12rem*/
-        .icon-info
-          color: #fff
 
     /*2.banner 轮播图*/
     .banner
@@ -188,6 +184,7 @@ export default {
           box-shadow 0 .08rem .16rem 0 rgba(0,0,0,0.12)
           position absolute
           bottom 0
+          opacity .4
 
     /*3.quick access*/
     .quick-access
