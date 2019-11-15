@@ -18,7 +18,7 @@
       <!--2.1 固定背景-->
       <div class="navbar-bg"></div>
       <!--2.2 码展示盒子-->
-      <div class="show-box pb-30">
+      <div class="show-box pb-30 pt16">
         <main class="cnt">
           <div class="img-box">
             <!--二维码-->
@@ -31,6 +31,44 @@
             </div>
           </div>
         </main>
+      </div>
+    </div>
+
+    <!--3.支付详情-->
+    <div class="paid-box pt16 pb-30">
+      <div class="paid-cnt">
+        <!--3.1 part 01 检查项-->
+        <div class="part-check">
+          <!--3.1.1 标题-->
+          <van-cell>
+            <!-- 使用 title 插槽来自定义标题 -->
+            <template slot="title">
+              <van-tag color="#009999">支付成功</van-tag>
+              <span class="custom-title">南开爱眼检查活动</span>
+            </template>
+          </van-cell>
+          <!--3.1.2 内容-->
+          <van-cell title="检查项1" value="*1" />
+          <van-cell title="检查项1" value="*1" />
+          <van-cell title="检查项1" value="*1" />
+          <van-cell title="检查项1" value="*1" />
+          <van-cell title="检查项1" value="*1" />
+          <van-cell class="calc">
+            <!-- 使用 title 插槽来自定义标题 -->
+            <template slot="title">
+              <span class="num">共5项</span>
+            </template>
+            <template slot="default">
+              <span class="total">总额<span class="paid">￥99</span></span>
+            </template>
+          </van-cell>
+        </div>
+        <!--3.2 part 02 支付信息-->
+        <div class="part-paid">
+          <van-cell title="订单编号" label="SW012345678901234567890123456789" />
+          <van-cell title="支付方式" value="微信支付" />
+          <van-cell title="下单时间" value="2019-11-07 15:40" />
+        </div>
       </div>
     </div>
   </div>
@@ -56,10 +94,22 @@ export default {
 
   [class*=van-hairline]::after
     border none
+  .van-cell:not(:last-child)::after
+    border none
+
+  /*list item*/
+  .order-detail  >>> .van-cell
+    padding 0 .24rem
+    height 1rem
+    line-height 1rem
+    overflow hidden
+    font-size .28rem
+    font-weight 400
+    color $text
+
 .order-detail
   width 100%
   height 100%
-  position fixed
   background-color $bgLightGray
   /*1.navbar 导航*/
   .navbar
@@ -89,10 +139,10 @@ export default {
     .show-box
       position relative
       width 100%
-      height 4.56rem
       .cnt
         width 100%
-        height 100%
+        height 4.56rem
+        /*height 100%*/
         background-color $bgWhite
         box-shadow $boxShadow
         border-radius $borderRadius8
@@ -123,4 +173,43 @@ export default {
             width 4.8rem
             height 1.2rem
 
+  .paid-box
+    padding-bottom .48rem
+    width 100%
+    box-sizing border-box
+    .paid-cnt
+      padding-top 0 .24rem
+      width 100%
+      background-color $bgWhite
+      box-shadow $boxShadow
+      border-radius $borderRadius8
+      /*第一部分 part 01 检查记录*/
+      .part-check
+        border-bottom $allBorder
+        /*总计*/
+        .calc
+          font-size .24rem
+          /*支付金额*/
+          .paid
+            padding-left .04rem
+            font-size .4rem
+            font-weight bold
+            color $colorMainRed
+        /*首行标题*/
+        >>> .van-cell:first-child
+          font-size .32rem
+          font-weight bold
+          color $textMainTitle
+
+      /*第二部分 part 02 支付信息*/
+      .part-paid
+        margin-top .24rem
+        >>> .van-cell .van-cell__title
+          color $textMainTitle
+          font-weight bold
+          .van-cell__label
+            font-weight 400
+        >>> .van-cell:first-child
+          overflow visible
+          line-height .4rem
 </style>
