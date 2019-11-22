@@ -1,15 +1,15 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 import Home from '../pages/Home'
-import NewsList from '../pages/NewsList'
-import CommonNav from '../components/CommonNav'
-import NewsListCnt from '../components/NewsListCnt'
-import NewsDetail from '../pages/NewsDetail'
-import OrderList from '../pages/OrderList'
-import Code from '../pages/order/Code'
-import OrderDetailCheck from '../pages/order/OrderDetailCheck'
-import Center from '../pages/Center'
-import Ttext from '../pages/Ttext'
+import NewsList from '../pages/NewsList' // 资讯列表
+import CommonNav from '../components/CommonNav' // 公共导航条（fixed）
+import NewsListCnt from '../components/NewsListCnt' // 动态获取资讯列表内容
+import NewsDetail from '../pages/NewsDetail' // 资讯详情
+import OrderList from '../pages/order/OrderList' // 订单列表
+import Code from '../pages/order/Code' // 获取状态码
+import OrderDetailCheck from '../pages/order/OrderDetailCheck' // 订单详情 -- 检查记录
+import Center from '../pages/Center' // 个人中心
+import Ttext from '../pages/Ttext' // 测试
 Vue.use(Router)
 
 export default new Router({

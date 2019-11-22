@@ -37,6 +37,7 @@
     <!--3.支付详情-->
     <div class="paid-box pt16 pb-30">
       <div class="paid-cnt">
+
         <!--3.1 part 01 检查项-->
         <div class="part-check">
           <!--3.1.1 标题-->
@@ -48,11 +49,11 @@
             </template>
           </van-cell>
           <!--3.1.2 内容-->
-          <van-cell title="检查项1" value="*1" />
-          <van-cell title="检查项1" value="*1" />
-          <van-cell title="检查项1" value="*1" />
-          <van-cell title="检查项1" value="*1" />
-          <van-cell title="检查项1" value="*1" />
+          <van-cell title="检查项1" value="× 1" />
+          <van-cell title="检查项1" value="× 1" />
+          <van-cell title="检查项1" value="× 1" />
+          <van-cell title="检查项1" value="× 1" />
+          <van-cell title="检查项1" value="× 1" />
           <van-cell class="calc">
             <!-- 使用 title 插槽来自定义标题 -->
             <template slot="title">
@@ -63,6 +64,7 @@
             </template>
           </van-cell>
         </div>
+
         <!--3.2 part 02 支付信息-->
         <div class="part-paid">
           <van-cell title="订单编号" label="SW012345678901234567890123456789" />
@@ -173,6 +175,7 @@ export default {
             width 4.8rem
             height 1.2rem
 
+  /*3. 付款详情*/
   .paid-box
     padding-bottom .48rem
     width 100%
